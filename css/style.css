@@ -73,7 +73,14 @@ li::first-letter {
 }
 
 .current {
-  color: rgb(0, 86, 184);
+  cursor: default;
+  color: blue;
+}
+
+.link:hover,
+.link:focus {
+  text-decoration: none;
+  color: blue;
 }
 
 .data-weather {

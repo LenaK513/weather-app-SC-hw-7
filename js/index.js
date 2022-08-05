@@ -36,6 +36,7 @@ function displayTemperature(response) {
   let windEl = document.querySelector("#wind");
   let dateEl = document.querySelector("#date");
   let iconEl = document.querySelector("#icon");
+  celsiusTemp = response.data.main.temp;
   tempElement.innerHTML = Math.round(response.data.main.temp);
   cityEl.innerHTML = response.data.name;
   descriptionEl.innerHTML = response.data.weather[0].description;
@@ -64,12 +65,22 @@ function handleSubmit(event) {
 
 function showFahrTemp(event) {
   event.preventDefault();
-  let fahrTemp = (22 * 9) / 5 + 32;
+  selsiusLink.classList.remove("current");
+  fahrLink.classList.add("current");
+  let fahrTemp = (celsiusTemp * 9) / 5 + 32;
   let tempEl = document.querySelector("#temperature");
   tempEl.innerHTML = Math.round(fahrTemp);
 }
 
-search("Kyiv");
+function showSelsiusTemp(event) {
+  event.preventDefault();
+  selsiusLink.classList.add("current");
+  fahrLink.classList.remove("current");
+  let tempEl = document.querySelector("#temperature");
+  tempEl.innerHTML = Math.round(celsiusTemp);
+}
+
+let celsiusTemp = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
@@ -77,6 +88,10 @@ form.addEventListener("submit", handleSubmit);
 let fahrLink = document.querySelector("#fahr-link");
 fahrLink.addEventListener("click", showFahrTemp);
 
+let selsiusLink = document.querySelector("#celsius-link");
+selsiusLink.addEventListener("click", showSelsiusTemp);
+
+search("Kyiv");
 //   if (searchInput.value) {
 //     city.innerHTML = `${searchInput.value}`;
 //   } else {
