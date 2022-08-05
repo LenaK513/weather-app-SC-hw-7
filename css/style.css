@@ -44,6 +44,7 @@ li::first-letter {
 }
 
 .visual-weather {
+  position: relative;
   display: flex;
   align-items: center;
 }
@@ -54,17 +55,17 @@ li::first-letter {
   margin-right: 20px;
 }
 .gradus {
-  position: relative;
   font-size: 50px;
 }
 
 .data-gradus {
+  position: absolute;
   display: flex;
   position: absolute;
   margin-left: 5px;
   font-size: 14px;
   top: 13px;
-  left: 46px;
+  left: 121px;
 }
 
 .current {
