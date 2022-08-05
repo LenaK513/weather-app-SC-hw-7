@@ -49,10 +49,14 @@ li::first-letter {
   align-items: center;
 }
 
-.sun {
-  font-size: 50px;
+/* .sun {
+  font-size: 32px;
   color: yellow;
   margin-right: 20px;
+} */
+
+#icon {
+  font-size: 32px;
 }
 .gradus {
   font-size: 50px;
@@ -64,8 +68,8 @@ li::first-letter {
   position: absolute;
   margin-left: 5px;
   font-size: 14px;
-  top: 13px;
-  left: 121px;
+  top: 26px;
+  right: -36px;
 }
 
 .current {

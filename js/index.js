@@ -35,20 +35,38 @@ function displayTemperature(response) {
   let humidityEl = document.querySelector("#humidity");
   let windEl = document.querySelector("#wind");
   let dateEl = document.querySelector("#date");
+  let iconEl = document.querySelector("#icon");
   tempElement.innerHTML = Math.round(response.data.main.temp);
   cityEl.innerHTML = response.data.name;
   descriptionEl.innerHTML = response.data.weather[0].description;
   humidityEl.innerHTML = response.data.main.humidity;
   windEl.innerHTML = Math.round(response.data.wind.speed);
   dateEl.innerHTML = formatDate(response.data.dt * 1000);
+  iconEl.setAttribute(
+    "src",
+    ` http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
-let apiKey = "459eb898914d2b1561006ac93c82eeda";
-let city = "Kyiv";
-let apiCall = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-console.log(apiCall);
+function search(city) {
+  let apiKey = "459eb898914d2b1561006ac93c82eeda";
 
-axios.get(apiCall).then(displayTemperature);
+  let apiCall = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiCall).then(displayTemperature);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputEl = document.querySelector("#city-input");
+  search(cityInputEl.value);
+}
+
+search("Kyiv");
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
+
 //   if (searchInput.value) {
 //     city.innerHTML = `${searchInput.value}`;
 //   } else {
@@ -60,24 +78,25 @@ axios.get(apiCall).then(displayTemperature);
 //     let temperature = Math.round(response.data.main.temp);
 //     let tempElement = document.querySelector(".temp");
 //     tempElement.innerHTML = `${temperature}`;
+// }`;
 
-//     let humid = document.querySelector(".humidity");
-//     humid.innerHTML = `Humidity: ${response.data.main.humidity}`;
+// //     let humid = document.querySelector(".humidity");
+// //     humid.innerHTML = `Humidity: ${response.data.main.humidity}`;
 
-//     let wind = document.querySelector(".wind");
-//     wind.innerHTML = `Wind: ${response.data.wind.speed}`;
+// //     let wind = document.querySelector(".wind");
+// //     wind.innerHTML = `Wind: ${response.data.wind.speed}`;
 
-//     let description = response.data.weather[0].description;
-//     let desc = document.querySelector(".description");
-//     desc.innerHTML = description.charAt(0).toUpperCase() + description.slice(1);
+// //     let description = response.data.weather[0].description;
+// //     let desc = document.querySelector(".description");
+// //     desc.innerHTML = description.charAt(0).toUpperCase() + description.slice(1);
 
-//     console.log(response);
-//   }
-//   axios.get(apiCall).then(showTemperature);
+// //     console.log(response);
+// //   }
+// //   axios.get(apiCall).then(showTemperature);
 
-//   // function showPosition(position) {
-//   //   let apiKey = "459eb898914d2b1561006ac93c82eeda";
-//   //   let apiCallSecond = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+// //   // function showPosition(position) {
+// //   //   let apiKey = "459eb898914d2b1561006ac93c82eeda";
+// //   //   let apiCallSecond = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
 //   //   axios.get(apiCallSecond).then(getCurrentPosition);
 //   // }
 
