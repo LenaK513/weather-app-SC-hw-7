@@ -87,3 +87,8 @@ li::first-letter {
   font-weight: 500;
   margin-right: 50px;
 }
+
+.signature {
+  font-size: 14px;
+  margin: 0 auto;
+}
