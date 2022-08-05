@@ -33,32 +33,31 @@
   <body>
     <main>
       <div class="container">
-        <h1>Kyiv</h1>
+        <h1 id="city">Kyiv</h1>
         <ul>
-          <li>Friday</li>
-          <li>Cloudy</li>
+          <li id="date">Friday</li>
+          <li id="description">Cloudy</li>
         </ul>
         <div class="wrap">
           <ul class="visual-weather">
             <li class="sun">☀</li>
-            <li class="gradus">
+            <li class="gradus" id="temperature">
               17
               <span class="data-gradus">
-                <a href="" class="link" id="cel">C&#176;</a> |
-                <a href="" class="link" id="farng"> F&#176;</a>
+                <a href="" class="link current">C&#176;</a> |
+                <a href="" class="link"> F&#176;</a>
               </span>
             </li>
           </ul>
 
           <ul class="data-weather">
-            <li class="humidity">Humidity:54%</li>
-            <li class="wind">Wind:5km/h</li>
-            <li class="description">Clear</li>
+            <li class="humidity">Humidity: <span id="humidity"></span>%</li>
+            <li class="wind">Wind: <span id="wind"></span>km/h</li>
           </ul>
         </div>
       </div>
     </main>
 
-    <script src="./jss/index.js"></script>
+    <script src="./js/index.js"></script>
   </body>
 </html>

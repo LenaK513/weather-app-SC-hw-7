@@ -15,6 +15,7 @@ ul {
 }
 .link {
   text-decoration: none;
+  color: #000;
 }
 
 .container {
@@ -32,10 +33,14 @@ li {
   font-size: 14px;
 }
 
+li::first-letter {
+  text-transform: capitalize;
+}
 .wrap {
   display: flex;
   margin-top: 20px;
   justify-content: space-between;
+  align-items: center;
 }
 
 .visual-weather {
@@ -44,21 +49,26 @@ li {
 }
 
 .sun {
-  font-size: 44px;
+  font-size: 50px;
   color: yellow;
   margin-right: 20px;
 }
 .gradus {
   position: relative;
-  font-size: 44px;
+  font-size: 50px;
 }
 
 .data-gradus {
   display: flex;
   position: absolute;
+  margin-left: 5px;
   font-size: 14px;
   top: 13px;
   left: 46px;
+}
+
+.current {
+  color: rgb(0, 86, 184);
 }
 
 .data-weather {
