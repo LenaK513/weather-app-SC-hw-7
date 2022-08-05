@@ -62,10 +62,20 @@ function handleSubmit(event) {
   search(cityInputEl.value);
 }
 
+function showFahrTemp(event) {
+  event.preventDefault();
+  let fahrTemp = (22 * 9) / 5 + 32;
+  let tempEl = document.querySelector("#temperature");
+  tempEl.innerHTML = Math.round(fahrTemp);
+}
+
 search("Kyiv");
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let fahrLink = document.querySelector("#fahr-link");
+fahrLink.addEventListener("click", showFahrTemp);
 
 //   if (searchInput.value) {
 //     city.innerHTML = `${searchInput.value}`;
