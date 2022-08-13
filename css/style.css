@@ -98,12 +98,12 @@ li::first-letter {
   color: #000;
 }
 .forecast-weather__day {
-  font-size: 16px;
+  font-size: 14px;
   opacity: 0.6;
 }
 
 .forecast-weather__temperature {
-  font-size: 13px;
+  font-size: 12px;
 }
 .forecast-weather__min {
   opacity: 0.6;
