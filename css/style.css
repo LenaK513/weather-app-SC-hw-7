@@ -92,3 +92,19 @@ li::first-letter {
   font-size: 14px;
   margin: 0 auto;
 }
+.forecast-weather {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #000;
+}
+.forecast-weather__day {
+  font-size: 16px;
+  opacity: 0.6;
+}
+
+.forecast-weather__temperature {
+  font-size: 13px;
+}
+.forecast-weather__min {
+  opacity: 0.6;
+}
