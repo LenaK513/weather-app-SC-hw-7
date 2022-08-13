@@ -59,10 +59,10 @@ function displayForecast(response) {
     <div class="forecast-weather__temperature">
       <span class="forecast-weather__max">${Math.round(
         forecastDay.temp.max
-      )}</span>
+      )}°</span>
         <span class="forecast-weather__min">${Math.round(
           forecastDay.temp.min
-        )}</span>
+        )}°</span>
           </div>
           </div>
           `;
@@ -117,14 +117,14 @@ function handleSubmit(event) {
   search(cityInputEl.value);
 }
 
-function showFahrTemp(event) {
-  event.preventDefault();
-  selsiusLink.classList.remove("current");
-  fahrLink.classList.add("current");
-  let fahrTemp = (celsiusTemp * 9) / 5 + 32;
-  let tempEl = document.querySelector("#temperature");
-  tempEl.innerHTML = Math.round(fahrTemp);
-}
+// function showFahrTemp(event) {
+//   event.preventDefault();
+//   selsiusLink.classList.remove("current");
+//   fahrLink.classList.add("current");
+//   let fahrTemp = (celsiusTemp * 9) / 5 + 32;
+//   let tempEl = document.querySelector("#temperature");
+//   tempEl.innerHTML = Math.round(fahrTemp);
+// }
 
 function showSelsiusTemp(event) {
   event.preventDefault();
@@ -139,8 +139,8 @@ let celsiusTemp = null;
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-let fahrLink = document.querySelector("#fahr-link");
-fahrLink.addEventListener("click", showFahrTemp);
+// let fahrLink = document.querySelector("#fahr-link");
+// fahrLink.addEventListener("click", showFahrTemp);
 
 let selsiusLink = document.querySelector("#celsius-link");
 selsiusLink.addEventListener("click", showSelsiusTemp);

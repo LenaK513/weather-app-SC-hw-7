@@ -69,13 +69,13 @@ li::first-letter {
   margin-left: 5px;
   font-size: 14px;
   top: 26px;
-  right: -36px;
+  right: -20px;
 }
 
-.current {
+/* .current {
   cursor: default;
   color: blue;
-}
+} */
 
 .link:hover,
 .link:focus {
