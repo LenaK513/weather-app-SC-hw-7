@@ -28,6 +28,35 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast-weather");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Sun", "Mon", "Thue", "Wen", "Thu", "Fri"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      ` 
+ 
+  <div class="col-2">
+    <div class="forecast-weather__day">${day}</div>
+
+    <img
+      src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+      alt="rain"
+      width="40"
+    />
+    <div class="forecast-weather__temperature">
+      <span class="forecast-weather__max"> 28 </span>
+      <span class="forecast-weather__min"> 18 </span>
+    </div>
+  </div>
+`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayTemperature(response) {
   let tempElement = document.querySelector("#temperature");
   let cityEl = document.querySelector("#city");
@@ -92,6 +121,7 @@ let selsiusLink = document.querySelector("#celsius-link");
 selsiusLink.addEventListener("click", showSelsiusTemp);
 
 search("Kyiv");
+displayForecast();
 //   if (searchInput.value) {
 //     city.innerHTML = `${searchInput.value}`;
 //   } else {
