@@ -28,7 +28,8 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast-weather");
   let forecastHTML = `<div class="row">`;
   let days = ["Sun", "Mon", "Thue", "Wen", "Thu", "Fri"];
@@ -60,8 +61,9 @@ function displayForecast() {
 function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "9d3038f7eda72acd898fbf56dfeaad1c";
-  let apiCall = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  console.log(apiCall);
+  let apiCall = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  // console.log(apiCall);
+  axios.get(apiCall).then(displayForecast);
 }
 
 function displayTemperature(response) {
@@ -129,7 +131,7 @@ let selsiusLink = document.querySelector("#celsius-link");
 selsiusLink.addEventListener("click", showSelsiusTemp);
 
 search("Kyiv");
-displayForecast();
+
 //   if (searchInput.value) {
 //     city.innerHTML = `${searchInput.value}`;
 //   } else {
